@@ -1,0 +1,32 @@
+{
+  "name": "iotservices",
+  "version": "1.0.0",
+  "description": "Aurdino IoT Services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigsoft98/IoTServices.git"
+  },
+  "keywords": [
+    "Aurdino",
+    "IoT",
+    "RESTful",
+    "API"
+  ],
+  "author": "Kevin Hu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bigsoft98/IoTServices/issues"
+  },
+  "homepage": "https://github.com/bigsoft98/IoTServices#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.1"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^5.0.7"
+  }
+}
