@@ -6,6 +6,7 @@ var express = require('express'),
   bodyParser = require('body-parser');
 
 
+var path = require('path'); 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/IoTServiceDB');
 mongoose.set('debug',true);
@@ -16,7 +17,8 @@ app.use(bodyParser.json());
 var routes = require('./api/routes/deviceRoutes');
 routes(app);
 
-
+// we are specifying the html directory as another public directory
+app.use(express.static(path.join(__dirname, 'html')));
 app.use(function(req,res){
     res.status(404).send({url: req.originalUrl + ' not found'})
 });
