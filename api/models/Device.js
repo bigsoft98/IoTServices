@@ -16,14 +16,14 @@ var DeviceSchema = new Schema({
     },
 
     status:{
-        type: [{
+        type: {
             type: String,
             enum: ['online', 'offline', 'unknow']
-          }],
+          },
           default: ['unknow']
 
     }
 
 });
 
-module.exports = mongoose.model('Devices',DeviceSchema);
+module.exports = mongoose.model('Device',DeviceSchema);

@@ -1,7 +1,8 @@
 'use strict';
 
 var mongoose = require('mongoose'),
- Device = mongoose.model('Devices');
+ Device = mongoose.model('Device'),
+ DeviceData = mongoose.model('DeviceData');
 
  exports.list_all_devices = function(req,res) {
 
@@ -23,3 +24,27 @@ var mongoose = require('mongoose'),
     });
 
  };
+
+ exports.add_device_data = function(req,res){
+    var new_device_data = new DeviceData(req.body);
+    new_device_data.save(function(err,deviceData){
+        if(err)
+            res.send(err);
+        res.json(deviceData);
+    })
+};  
+
+exports.fetch_device_data = function(req,res){
+    var search_deviceId = req.param('deviceId');
+    console.log('passing search device id '+search_deviceId);
+    var search_startTime = req.param('startTime');
+    DeviceData.find({deviceId: search_deviceId},function(err, data) {
+        if (err)
+            res.send(err);
+        res.json(data);
+    })
+};  
+
+
+
+ 

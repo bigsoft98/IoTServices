@@ -3,15 +3,20 @@
 module.exports = function(app){
 
     var deviceController = require('../controllers/deviceController');
-    //var html_dir = '../../html/';
 
-   // app.get('/viewDevices', function(req, res) {
-   //     res.sendfile(html_dir + 'deviceView.html');
-   // });
-
+    // List all the devices
     app.route('/devices')
         .get(deviceController.list_all_devices);
 
+    // Adding new Device    
     app.route('/device')
         .post(deviceController.create_a_device);
+
+    //Insert Device Data    
+    app.route('/deviceData')
+        .post(deviceController.add_device_data);
+
+    // /fetchDeviceData?deviceId=&startTime
+    app.route('/fetchDeviceData')
+        .get(deviceController.fetch_device_data);
 }
